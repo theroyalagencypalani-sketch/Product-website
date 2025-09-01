@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Royal Agency • Sanitary, Tools, Hardware, Plumbing</title>
+  <meta name="description" content="The Royal Agency — Sanitary, tools, hardware, plumbing, CPVC & UPVC fittings. Proprietor: Mohd Suhail. Neillkkarapatti, Palani." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="logo updated.png" type="image/png" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <!-- ✅ Brand with image logo -->
+      <a class="brand" href="#home" aria-label="The Royal Agency">
+        <img src="logo updated.png" alt="The Royal Agency Logo" class="brand-icon" />
+        <span class="brand-text">THE <strong>ROYAL</strong> AGENCY</span>
+      </a>
+
+      <!-- ✅ Mobile menu toggle -->
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="menu" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn btn-outline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- ✅ Hero Section -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1 class="headline">
+          Sanitary, Tools, Hardware, Plumbing<br />
+          <span class="sub">CPVC &amp; UPVC Fittings</span>
+        </h1>
+        <p class="tagline">Quality supplies with a royal touch — for homes, shops, and projects in and around Palani.</p>
+        <div class="cta-row">
+          <a class="btn" href="tel:+916380181459">Call 6380181459</a>
+          <a class="btn btn-outline" id="whatsappLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <ul class="badges">
+          <li><span>Proprietor:</span> <strong>MOHAMED SUHAIL</strong></li>
+          <li><span>Location:</span> Neikkarapatti, Palani</li>
+        </ul>
+      </div>
+      <div class="hero-gradient" aria-hidden="true"></div>
+    </section>
+
+    <!-- ✅ Services -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title">Our Core Services</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Sanitary Ware</h3>
+            <p>Basins, closets, faucets, traps, and accessories with durable finishes.</p>
+          </article>
+          <article class="card">
+            <h3>Tools &amp; Hardware</h3>
+            <p>Hand tools, fasteners, sealants, and essential hardware for daily work.</p>
+          </article>
+          <article class="card">
+            <h3>Plumbing Solutions</h3>
+            <p>Pipes, valves, fixtures, tapes, and consumables for reliable installs.</p>
+          </article>
+          <article class="card">
+            <h3>CPVC &amp; UPVC Fittings</h3>
+            <p>Hot &amp; cold water lines, elbows, tees, couplers, reducers, and more.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ About -->
+    <section id="about" class="section alt">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title">About The Royal Agency</h2>
+          <p>We’re a local supply partner focused on dependable stock, clear pricing, and fast service. Whether you’re a contractor or a homeowner, we help you get the job done right the first time.</p>
+          <ul class="list">
+            <li>Curated inventory for common project needs</li>
+            <li>Quick sourcing for special items</li>
+            <li>Friendly advice on product selection</li>
+          </ul>
+        </div>
+        <aside class="stat-card">
+          <div class="stat">
+            <span class="num">1000+</span>
+            <span class="label">Items stocked</span>
+          </div>
+          <div class="stat">
+            <span class="num">24–48h</span>
+            <span class="label">Special order ETA</span>
+          </div>
+          <div class="stat">
+            <span class="num">100%</span>
+            <span class="label">Local support</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ✅ Contact -->
+    <section id="contact" class="section">
+      <div class="container contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-cards">
+          <a class="card link-card" href="tel:+916380181459">
+            <h3>Call</h3>
+            <p>6380181459</p>
+          </a>
+          <a class="card link-card" id="waCard" target="_blank" rel="noopener">
+            <h3>WhatsApp</h3>
+            <p>Chat with us</p>
+          </a>
+          <div class="card">
+            <h3>Visit</h3>
+            <p>Neillkkarapatti, Palani</p>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <label>
+            Your Name
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Phone or Email
+            <input type="text" name="replyTo" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button class="btn" type="submit"><a href=""></a></button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ✅ Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> The Royal Agency • All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="index.js" defer></script>
+</body>
+</html>
