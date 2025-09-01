@@ -217,3 +217,134 @@ input:focus, textarea:focus { box-shadow: 0 0 0 4px var(--ring); }
   .menu.open { display: flex; flex-direction: column; gap: 14px; padding: 12px 0; }
   .menu-btn { display: inline-flex; }
 }
+
+
+
+
+/* Product Page */
+.category-title {
+  margin: 30px 0 15px;
+  font-size: 22px;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(216,190,106,0.3);
+  padding-bottom: 6px;
+}
+
+.product-filters {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.product-filters input {
+  padding: 10px 14px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 1px solid rgba(216,190,106,0.25);
+  background: #0f0f0f;
+  color: var(--text);
+}
+
+.product-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.product-card {
+  transition: transform 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-card h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: var(--gold);
+}
+.product-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.product-card .price {
+  font-weight: bold;
+  color: var(--gold);
+}
+.product-card .qty {
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Product Page */
+.product-filters {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.product-filters input,
+.product-filters select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(216,190,106,0.25);
+  background: #0f0f0f;
+  color: var(--text);
+}
+.product-filters select option {
+  background: #0f0f0f;
+  color: var(--text);
+}
+
+.product-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.product-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.product-card h3 {
+  font-size: 18px;
+  margin: 0 0 6px;
+  color: var(--gold);
+}
+.product-card p {
+  font-size: 14px;
+  margin: 4px 0;
+}
+.product-card .price {
+  font-weight: bold;
+  color: var(--gold);
+}
+.product-card .qty {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Royal Agency • Products</title>
+  <meta name="description" content="The Royal Agency — Sanitary, tools, hardware, plumbing, CPVC & UPVC fittings. Proprietor: Mohd Suhail. Neillkkarapatti, Palani." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="logo updated.png" type="image/png" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="logo updated.png" alt="The Royal Agency Logo" class="brand-icon" />
+        <span class="brand-text">THE <strong>ROYAL</strong> AGENCY</span>
+      </a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="menu">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#about">About</a>
+        <a href="#" class="btn btn-outline">Products</a>
+        <a href="index.html#contact" class="btn btn-outline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Products Section -->
+  <main class="section">
+    <div class="container">
+      <h1 class="section-title">Our Products</h1>
+      <p class="tagline">Browse through our product categories with pricing and availability.</p>
+
+      <!-- Filters -->
+      <div class="product-filters">
+        <input type="text" id="searchBox" placeholder="Search products..." />
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+          <option value="pipes">Pipes</option>
+          <option value="tools">Tools</option>
+          <option value="paints">Paints</option>
+        </select>
+        <select id="sortFilter">
+          <option value="default">Sort by</option>
+          <option value="priceLowHigh">Price: Low → High</option>
+          <option value="priceHighLow">Price: High → Low</option>
+          <option value="qtyHighLow">Availability: High → Low</option>
+        </select>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="grid product-grid" id="productGrid">
+        
+        <!-- Example Products -->
+        <article class="card product-card" data-category="pipes" data-price="120" data-qty="150">
+          <img src="products/pipe.jpg" alt="PVC Pipe" />
+          <h3>PVC Pipe (1 inch)</h3>
+          <p>Durable PVC pipe suitable for home plumbing.</p>
+          <p class="price">₹120 / piece</p>
+          <p class="qty">Available: 150 units</p>
+        </article>
+
+        <article class="card product-card" data-category="pipes" data-price="250" data-qty="80">
+          <img src="products/cpvc-pipe.jpg" alt="CPVC Pipe" />
+          <h3>CPVC Pipe (2 inch)</h3>
+          <p>Strong CPVC pipe for hot & cold water supply.</p>
+          <p class="price">₹250 / piece</p>
+          <p class="qty">Available: 80 units</p>
+        </article>
+
+        <article class="card product-card" data-category="tools" data-price="750" data-qty="40">
+          <img src="products/toolkit.jpg" alt="Tool Kit" />
+          <h3>Hand Tool Kit</h3>
+          <p>Complete kit for daily household repairs.</p>
+          <p class="price">₹750 / kit</p>
+          <p class="qty">Available: 40 kits</p>
+        </article>
+
+        <article class="card product-card" data-category="tools" data-price="180" data-qty="100">
+          <img src="products/hammer.jpg" alt="Hammer" />
+          <h3>Hammer</h3>
+          <p>Heavy-duty hammer with steel handle.</p>
+          <p class="price">₹180 / piece</p>
+          <p class="qty">Available: 100 units</p>
+        </article>
+
+        <article class="card product-card" data-category="paints" data-price="350" data-qty="60">
+          <img src="products/interior-paint.jpg" alt="Interior Emulsion Paint" />
+          <h3>Interior Emulsion</h3>
+          <p>High-quality emulsion paint for walls.</p>
+          <p class="price">₹350 / 1L</p>
+          <p class="qty">Available: 60 tins</p>
+        </article>
+
+        <article class="card product-card" data-category="paints" data-price="450" data-qty="40">
+          <img src="products/exterior-paint.jpg" alt="Exterior Weatherproof Paint" />
+          <h3>Exterior Weatherproof Paint</h3>
+          <p>Durable paint to withstand all weather.</p>
+          <p class="price">₹450 / 1L</p>
+          <p class="qty">Available: 40 tins</p>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> The Royal Agency • All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const searchBox = document.getElementById("searchBox");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const sortFilter = document.getElementById("sortFilter");
+    const productGrid = document.getElementById("productGrid");
+
+    function filterProducts() {
+      const query = searchBox.value.toLowerCase();
+      const category = categoryFilter.value;
+      const cards = [...productGrid.querySelectorAll(".product-card")];
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        const matchesSearch = text.includes(query);
+        const matchesCategory = category === "all" || card.dataset.category === category;
+        card.style.display = (matchesSearch && matchesCategory) ? "block" : "none";
+      });
+    }
+
+    function sortProducts() {
+      const sortType = sortFilter.value;
+      const cards = [...productGrid.querySelectorAll(".product-card")];
+
+      let sorted = cards;
+      if (sortType === "priceLowHigh") {
+        sorted = cards.sort((a, b) => a.dataset.price - b.dataset.price);
+      } else if (sortType === "priceHighLow") {
+        sorted = cards.sort((a, b) => b.dataset.price - a.dataset.price);
+      } else if (sortType === "qtyHighLow") {
+        sorted = cards.sort((a, b) => b.dataset.qty - a.dataset.qty);
+      }
+
+      // Clear and append sorted
+      productGrid.innerHTML = "";
+      sorted.forEach(card => productGrid.appendChild(card));
+    }
+
+    searchBox.addEventListener("input", filterProducts);
+    categoryFilter.addEventListener("change", filterProducts);
+    sortFilter.addEventListener("change", sortProducts);
+  </script>
+</body>
+</html>
